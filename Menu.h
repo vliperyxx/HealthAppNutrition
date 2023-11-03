@@ -3,7 +3,7 @@
 #include "FoodJournal.h"
 #include "FoodItem.h"
 #include <string>
-class Menu
+class Menu //Menu
 {
 public:
 	void showMenu() const;

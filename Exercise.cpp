@@ -6,7 +6,7 @@
 
 Exercise::Exercise()
 {
-	/*std::cout << "Exercise created" << std::endl;*/
+	/*std::cout << "Exercise created" << std::endl;*/ //
 }
 
 Exercise::~Exercise()

@@ -9,8 +9,7 @@ FoodLibrary::FoodLibrary() {
 FoodLibrary::~FoodLibrary() {
 }
 
-void FoodLibrary::addFoodItem()
-{
+void FoodLibrary::addFoodItem(){
     FoodItem foodItem;
 
     std::string name;
@@ -63,8 +62,7 @@ void FoodLibrary::addFoodItem()
 }
 
 
-void FoodLibrary::removeFoodItem(const std::string& nameToRemove)
-{
+void FoodLibrary::removeFoodItem(const std::string& nameToRemove){
     std::ifstream inputFile("foodDatabase.txt");
     std::ofstream tempFile("temp.txt");
 
@@ -74,14 +72,14 @@ void FoodLibrary::removeFoodItem(const std::string& nameToRemove)
     }
 
     std::string foodName;
-    double calorieAmt, proteinAmt, carbAmt, fatAmt;
+    double caloriesAmount, proteinAmount, carbohydratesAmount, fatAmount;
 
-    while (inputFile >> foodName >> calorieAmt >> proteinAmt >> carbAmt >> fatAmt) {
+    while (inputFile >> foodName >> caloriesAmount >> proteinAmount >> carbohydratesAmount >> fatAmount) {
         if (foodName == nameToRemove) {
             // Пропускаємо запис, який ми хочемо видалити
         }
         else {
-            tempFile << foodName << " " << calorieAmt << proteinAmt << carbAmt << fatAmt << std::endl;
+            tempFile << foodName << " " << caloriesAmount << proteinAmount << carbohydratesAmount << fatAmount << std::endl;
         }
     }
 
@@ -100,8 +98,7 @@ void FoodLibrary::removeFoodItem(const std::string& nameToRemove)
     }
 }
 
-void FoodLibrary::editFoodItem(const std::string& nameToEdit)
-{
+void FoodLibrary::editFoodItem(const std::string& nameToEdit){
     std::ifstream inputFile("foodDatabase.txt");
     std::ofstream tempFile("temp.txt");
 
@@ -158,8 +155,7 @@ void FoodLibrary::editFoodItem(const std::string& nameToEdit)
 }
 
 
-void FoodLibrary::viewFoodList()
-{
+void FoodLibrary::viewFoodList(){
     std::ifstream inputFile("foodDatabase.txt");
     std::string foodName;
     double calorieAmt, proteinAmt, carbAmt, fatAmt;
@@ -183,8 +179,7 @@ void FoodLibrary::viewFoodList()
     inputFile.close();
 }
 
-std::vector<FoodItem> FoodLibrary::searchFoodByName(const std::string& nameToSearch)
-{
+std::vector<FoodItem> FoodLibrary::searchFoodByName(const std::string& nameToSearch){
     std::vector<FoodItem> searchResults;
     std::ifstream inputFile("foodDatabase.txt");
     std::string foodName;
@@ -196,7 +191,7 @@ std::vector<FoodItem> FoodLibrary::searchFoodByName(const std::string& nameToSea
     }
 
     while (inputFile >> foodName >> calorieAmt >> proteinAmt >> carbAmt >> fatAmt) {
-        if (foodName == nameToSearch) {
+        if (foodName.find(nameToSearch) != std::string::npos) {
             searchResults.emplace_back(foodName, calorieAmt, proteinAmt, carbAmt, fatAmt);
         }
     }
@@ -220,21 +215,20 @@ std::vector<FoodItem> FoodLibrary::searchFoodByName(const std::string& nameToSea
     return searchResults;
 }
 
-std::vector<FoodItem> FoodLibrary::searchFoodByCalories(double minCalories, double maxCalories)
-{
+std::vector<FoodItem> FoodLibrary::searchFoodByCalories(double minCalories, double maxCalories){
     std::vector<FoodItem> searchResults;
     std::ifstream inputFile("foodDatabase.txt");
     std::string foodName;
-    double calorieAmt, proteinAmt, carbAmt, fatAmt;
+    double caloriesAmount, proteinAmount, carbohydratesAmount, fatAmount;
 
     if (!inputFile.is_open()) {
         std::cout << "Unable to open the file for reading.\n";
         return searchResults;
     }
 
-    while (inputFile >> foodName >> calorieAmt >> proteinAmt >> carbAmt >> fatAmt) {
-        if (calorieAmt >= minCalories && calorieAmt <= maxCalories) {
-            searchResults.emplace_back(foodName, calorieAmt, proteinAmt, carbAmt, fatAmt);
+    while (inputFile >> foodName >> caloriesAmount >> proteinAmount >> carbohydratesAmount >> fatAmount) {
+        if (caloriesAmount >= minCalories && caloriesAmount <= maxCalories) {
+            searchResults.emplace_back(foodName, caloriesAmount, proteinAmount, carbohydratesAmount, fatAmount);
         }
     }
 
@@ -259,8 +253,7 @@ std::vector<FoodItem> FoodLibrary::searchFoodByCalories(double minCalories, doub
 }
 
 
-std::vector<FoodItem> FoodLibrary::searchFoodByAlphabeticalOrder()
-{
+std::vector<FoodItem> FoodLibrary::searchFoodByAlphabeticalOrder(){
     foodItems.clear();
 
     std::ifstream inputFile("foodDatabase.txt");
@@ -288,8 +281,7 @@ std::vector<FoodItem> FoodLibrary::searchFoodByAlphabeticalOrder()
 }
 
 
-void FoodLibrary::viewFoodByAlphabeticalOrder()
-{
+void FoodLibrary::viewFoodByAlphabeticalOrder(){
     std::vector<FoodItem> sortedItems = searchFoodByAlphabeticalOrder();
 
     if (sortedItems.empty()) {
@@ -304,8 +296,7 @@ void FoodLibrary::viewFoodByAlphabeticalOrder()
     }
 }
 
-std::vector<FoodItem> FoodLibrary::searchFoodByCaloriesDescending()
-{
+std::vector<FoodItem> FoodLibrary::searchFoodByCaloriesDescending(){
     std::ifstream inputFile("foodDatabase.txt");
     std::vector<FoodItem> sortedItems;
 
@@ -331,8 +322,7 @@ std::vector<FoodItem> FoodLibrary::searchFoodByCaloriesDescending()
     return sortedItems;
 }
 
-void FoodLibrary::viewFoodByCaloriesDescending()
-{
+void FoodLibrary::viewFoodByCaloriesDescending(){
     std::vector<FoodItem> sortedItems = searchFoodByCaloriesDescending();
 
     if (sortedItems.empty()) {

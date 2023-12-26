@@ -1,8 +1,30 @@
 #include "Menu.h"
+#include "MenuAction.h"
+#include "ViewFoodListAction.h"
+#include "AddFoodItemAction.h"
+#include "RemoveFoodItemAction.h"
+#include "EditFoodItemAction.h"
+#include "SearchFoodByNameAction.h"
+#include "SearchFoodByCaloriesAction.h"
+#include "ViewFoodByCaloriesDescendingAction.h"
+#include "ViewFoodByOrderAction.h"
+#include "RecordDailyIntakeAction.h"
 #include "FoodLibrary.h"
 #include "FoodJournal.h"
 #include "FoodItem.h"
 #include <iostream>
+
+Menu::Menu() {
+    actions[1] = new ViewFoodListAction();
+    actions[2] = new AddFoodItemAction();
+    actions[3] = new RemoveFoodItemAction();
+    actions[4] = new EditFoodItemAction();
+    actions[5] = new SearchFoodByNameAction();
+    actions[6] = new SearchFoodByCaloriesAction();
+    actions[7] = new ViewFoodByOrderAction();
+    actions[8] = new ViewFoodByCaloriesDescendingAction();
+    actions[9] = new RecordDailyIntakeAction();
+}
 
 void Menu::showMenu() const
 {
@@ -28,48 +50,56 @@ void Menu::run()
         std::cout << "Enter your choice: ";
         std::cin >> choice;
 
-        switch (choice)
+        if (choice <= actions.size() && choice > 0) {
+            actions[choice]->execute();
+        }
+        else {
+            std::cout << "Invalid choice. Please try again." << std::endl;
+            exit(0);
+        }
+
+        /*switch (choice)
         {
         case 1:
-            foodLibraryRun.viewFoodList();
+            foodLibrary.viewFoodList();
             break;
         case 2:
-            foodLibraryRun.addFoodItem();
+            foodLibrary.addFoodItem();
             break;
         case 3:
             Menu::nameToRemove;
             std::cout << "Enter the name of the product you want to remove: ";
             std::cin >> nameToRemove;
-            foodLibraryRun.removeFoodItem(nameToRemove);
+            foodLibrary.removeFoodItem(nameToRemove);
             break;
         case 4:
             std::cout << "Enter the name of the product you want to edit: ";
             std::cin >> nameToEdit;
-            foodLibraryRun.editFoodItem(nameToEdit);
+            foodLibrary.editFoodItem(nameToEdit);
             break;
         case 5:
             std::cout << "Enter the name of the product you want to find: ";
             std::cin >> nameToSearch;
-            foodLibraryRun.searchFoodByName(nameToSearch);
+            foodLibrary.searchFoodByName(nameToSearch);
             break;
         case 6:
             std::cout << "Enter enter calorie limits with using a space: ";
             std::cin >> minCalories >> maxCalories;
-            foodLibraryRun.searchFoodByCalories(minCalories, maxCalories);
+            foodLibrary.searchFoodByCalories(minCalories, maxCalories);
             break;
         case 7:
-            foodLibraryRun.viewFoodByAlphabeticalOrder();
+            foodLibrary.viewFoodByAlphabeticalOrder();
             break;
         case 8:
-            foodLibraryRun.viewFoodByCaloriesDescending();
+            foodLibrary.viewFoodByCaloriesDescending();
             break;
         case 9:
-            foodJournalRun.recordDailyIntake();
+            foodJournal.recordDailyIntake();
             break;
         default:
             std::cout << "Invalid choice. Please try again." << std::endl;
             exit(0);
-        }
+        }*/
 
     }
 }

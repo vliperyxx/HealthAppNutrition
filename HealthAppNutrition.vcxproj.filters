@@ -27,6 +27,36 @@
     <ClInclude Include="Menu.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="AddFoodItemAction.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="EditFoodItemAction.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuAction.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="RecordDailyIntakeAction.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="RemoveFoodItemAction.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchFoodByCaloriesAction.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchFoodByNameAction.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewFoodByOrderAction.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewFoodByCaloriesDescendingAction.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewFoodListAction.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FoodItem.cpp">
@@ -42,6 +72,33 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="HealthApp.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="AddFoodItemAction.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="EditFoodItemAction.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="RecordDailyIntakeAction.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="RemoveFoodItemAction.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchFoodByCaloriesAction.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchFoodByNameAction.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewFoodByOrderAction.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewFoodByCaloriesDescendingAction.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewFoodListAction.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

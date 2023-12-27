@@ -129,15 +129,19 @@
   <ItemGroup>
     <ClInclude Include="AddFoodItemAction.h" />
     <ClInclude Include="EditFoodItemAction.h" />
+    <ClInclude Include="FoodDiaryAction.h" />
     <ClInclude Include="FoodItem.h" />
+    <ClInclude Include="FoodItemAction.h" />
     <ClInclude Include="FoodJournal.h" />
     <ClInclude Include="FoodLibrary.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuAction.h" />
     <ClInclude Include="RecordDailyIntakeAction.h" />
     <ClInclude Include="RemoveFoodItemAction.h" />
+    <ClInclude Include="SearchFoodAction.h" />
     <ClInclude Include="SearchFoodByCaloriesAction.h" />
     <ClInclude Include="SearchFoodByNameAction.h" />
+    <ClInclude Include="ViewFoodAction.h" />
     <ClInclude Include="ViewFoodByOrderAction.h" />
     <ClInclude Include="ViewFoodByCaloriesDescendingAction.h" />
     <ClInclude Include="ViewFoodDiaryAction.h" />
@@ -146,15 +150,19 @@
   <ItemGroup>
     <ClCompile Include="AddFoodItemAction.cpp" />
     <ClCompile Include="EditFoodItemAction.cpp" />
+    <ClCompile Include="FoodDiaryAction.cpp" />
     <ClCompile Include="FoodItem.cpp" />
+    <ClCompile Include="FoodItemAction.cpp" />
     <ClCompile Include="FoodJournal.cpp" />
     <ClCompile Include="FoodLibrary.cpp" />
     <ClCompile Include="HealthApp.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="RecordDailyIntakeAction.cpp" />
     <ClCompile Include="RemoveFoodItemAction.cpp" />
+    <ClCompile Include="SearchFoodAction.cpp" />
     <ClCompile Include="SearchFoodByCaloriesAction.cpp" />
     <ClCompile Include="SearchFoodByNameAction.cpp" />
+    <ClCompile Include="ViewFoodAction.cpp" />
     <ClCompile Include="ViewFoodByOrderAction.cpp" />
     <ClCompile Include="ViewFoodByCaloriesDescendingAction.cpp" />
     <ClCompile Include="ViewFoodDiaryAction.cpp" />

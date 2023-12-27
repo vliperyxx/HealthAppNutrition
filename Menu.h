@@ -6,7 +6,7 @@
 #include <map>
 #include "MenuAction.h"
 
-class Menu 
+class Menu
 {
 private:
 	std::map<int, MenuAction*> actions;

@@ -60,6 +60,18 @@
     <ClInclude Include="ViewFoodDiaryAction.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="ViewFoodAction.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FoodItemAction.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchFoodAction.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FoodDiaryAction.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FoodItem.cpp">
@@ -105,6 +117,18 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="ViewFoodDiaryAction.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewFoodAction.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FoodItemAction.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchFoodAction.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FoodDiaryAction.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

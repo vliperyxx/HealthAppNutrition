@@ -140,6 +140,7 @@
     <ClInclude Include="SearchFoodByNameAction.h" />
     <ClInclude Include="ViewFoodByOrderAction.h" />
     <ClInclude Include="ViewFoodByCaloriesDescendingAction.h" />
+    <ClInclude Include="ViewFoodDiaryAction.h" />
     <ClInclude Include="ViewFoodListAction.h" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +157,7 @@
     <ClCompile Include="SearchFoodByNameAction.cpp" />
     <ClCompile Include="ViewFoodByOrderAction.cpp" />
     <ClCompile Include="ViewFoodByCaloriesDescendingAction.cpp" />
+    <ClCompile Include="ViewFoodDiaryAction.cpp" />
     <ClCompile Include="ViewFoodListAction.cpp" />
   </ItemGroup>
   <ItemGroup>

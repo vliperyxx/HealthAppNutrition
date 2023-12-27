@@ -1,6 +1,17 @@
-Date: 31.10.2023
+Date: 21.21.21
+Total Calories: 90
+Total Protein: 6
+Total Carbohydrates: 8
+Total Fat: 3
+Products:
+- Pineapple(90calories);
+---------------------------
+Date: 24.12.2023
 Total Calories: 288
 Total Protein: 10
 Total Carbohydrates: 26
 Total Fat: 24
+Products:
+- Pineapple(90 calories);
+- Pizza(198 calories);
 ---------------------------

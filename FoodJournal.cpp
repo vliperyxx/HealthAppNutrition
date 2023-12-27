@@ -26,6 +26,8 @@ void FoodJournal::recordDailyIntake() {
     double totalCarbohydrates = 0.0;
     double totalFat = 0.0;
 
+    std::vector<DailyIntakeItem> dailyItems; // Створення вектору для зберігання введених продуктів
+
     std::string productName;
     while (true) {
         std::cout << "Enter product name (or 'q' to finish adding products for the day): ";
@@ -59,12 +61,24 @@ void FoodJournal::recordDailyIntake() {
                 totalCarbohydrates += selectedProduct.getCarbohydrates();
                 totalFat += selectedProduct.getFat();
                 std::cout << "Product added: " << selectedProduct.getNameOfTheProduct() << "\n";
+
+                // Зберегти інформацію про введений продукт
+                DailyIntakeItem dailyItem;
+                dailyItem.productName = selectedProduct.getNameOfTheProduct();
+                dailyItem.calories = selectedProduct.getCalories();
+                dailyItem.protein = selectedProduct.getProtein();
+                dailyItem.carbohydrates = selectedProduct.getCarbohydrates();
+                dailyItem.fat = selectedProduct.getFat();
+                dailyItems.push_back(dailyItem);
             }
             else {
                 std::cout << "Invalid selection.\n";
             }
         }
     }
+
+    // Зберегти інформацію про введені продукти в щоденнику
+    dailyIntakeItems.insert(dailyIntakeItems.end(), dailyItems.begin(), dailyItems.end());
 
     // Записати дані до щоденника
     std::ofstream journalFile("foodJournal.txt", std::ios::app); // Відкриваємо файл для дописування
@@ -74,12 +88,30 @@ void FoodJournal::recordDailyIntake() {
         journalFile << "Total Protein: " << totalProtein << "\n";
         journalFile << "Total Carbohydrates: " << totalCarbohydrates << "\n";
         journalFile << "Total Fat: " << totalFat << "\n";
+        journalFile << "Products:\n";
+        for (const DailyIntakeItem& item : dailyItems) {
+            journalFile << "- " << item.productName << "(" << item.calories << " calories);" << "\n";
+        }
         journalFile << "---------------------------\n";
         journalFile.close();
         std::cout << "Daily intake recorded successfully.\n";
     }
     else {
         std::cout << "Unable to open the journal file for writing.\n";
+    }
+}
+
+void FoodJournal::viewAllEntries() const {
+    std::ifstream journalFile("foodJournal.txt");
+    if (journalFile.is_open()) {
+        std::string line;
+        while (std::getline(journalFile, line)) {
+            std::cout << line << "\n";
+        }
+        journalFile.close();
+    }
+    else {
+        std::cout << "Unable to open the journal file for reading.\n";
     }
 }
 

@@ -9,6 +9,7 @@
 #include "ViewFoodByCaloriesDescendingAction.h"
 #include "ViewFoodByOrderAction.h"
 #include "RecordDailyIntakeAction.h"
+#include "ViewFoodDiaryAction.h"
 #include "FoodLibrary.h"
 #include "FoodJournal.h"
 #include "FoodItem.h"
@@ -24,6 +25,7 @@ Menu::Menu() {
     actions[7] = new ViewFoodByOrderAction();
     actions[8] = new ViewFoodByCaloriesDescendingAction();
     actions[9] = new RecordDailyIntakeAction();
+    actions[10] = new ViewFoodDiaryAction();
 }
 
 void Menu::showMenu() const
@@ -37,8 +39,9 @@ void Menu::showMenu() const
     std::cout << "6. Search food by calories" << std::endl;
     std::cout << "7. View food list in aplhapetical order" << std::endl;
     std::cout << "8. View food list in calories descending" << std::endl;
-    std::cout << "9. Food diary" << std::endl;
-    std::cout << "10. Exit" << std::endl;
+    std::cout << "9. Add an entry to the food diary" << std::endl;
+    std::cout << "10. View food diary" << std::endl;
+    std::cout << "11. Exit" << std::endl;
 }
 
 void Menu::run()
@@ -57,49 +60,5 @@ void Menu::run()
             std::cout << "Invalid choice. Please try again." << std::endl;
             exit(0);
         }
-
-        /*switch (choice)
-        {
-        case 1:
-            foodLibrary.viewFoodList();
-            break;
-        case 2:
-            foodLibrary.addFoodItem();
-            break;
-        case 3:
-            Menu::nameToRemove;
-            std::cout << "Enter the name of the product you want to remove: ";
-            std::cin >> nameToRemove;
-            foodLibrary.removeFoodItem(nameToRemove);
-            break;
-        case 4:
-            std::cout << "Enter the name of the product you want to edit: ";
-            std::cin >> nameToEdit;
-            foodLibrary.editFoodItem(nameToEdit);
-            break;
-        case 5:
-            std::cout << "Enter the name of the product you want to find: ";
-            std::cin >> nameToSearch;
-            foodLibrary.searchFoodByName(nameToSearch);
-            break;
-        case 6:
-            std::cout << "Enter enter calorie limits with using a space: ";
-            std::cin >> minCalories >> maxCalories;
-            foodLibrary.searchFoodByCalories(minCalories, maxCalories);
-            break;
-        case 7:
-            foodLibrary.viewFoodByAlphabeticalOrder();
-            break;
-        case 8:
-            foodLibrary.viewFoodByCaloriesDescending();
-            break;
-        case 9:
-            foodJournal.recordDailyIntake();
-            break;
-        default:
-            std::cout << "Invalid choice. Please try again." << std::endl;
-            exit(0);
-        }*/
-
     }
 }

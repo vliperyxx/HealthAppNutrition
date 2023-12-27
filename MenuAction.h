@@ -6,6 +6,5 @@ class MenuAction {
 public:
     FoodLibrary foodLibrary;
 	FoodJournal foodJournal;
-	double minCalories, maxCalories;
     virtual void execute() = 0;
 };

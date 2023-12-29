@@ -1,3 +1,2 @@
-Apple Gala|120|3|4|2
-Apple Semerenko|230|4|3|45
-Pine|23|2|4|2
+Apple Semerenko|24|54|3|5
+Applw Gala|1230|23|1|3

@@ -65,38 +65,46 @@ void FoodLibrary::addFoodItem(){
 }
 
 void FoodLibrary::removeFoodItem(const std::string& nameToRemove) {
-    std::ifstream inputFile("foodDatabase.txt");
-    std::ofstream tempFile("temp.txt");
+    std::fstream file("foodDatabase.txt", std::ios::in);
 
-    if (!inputFile.is_open() || !tempFile.is_open()) {
-        std::cout << "Unable to open files for reading/writing.\n";
-        return;
+    if (!file.is_open()) {
+        throw std::runtime_error("Unable to open the file for reading.");
     }
 
-    std::string foodName;
-    double caloriesAmount, proteinAmount, carbohydratesAmount, fatAmount;
+    std::string line;
+    std::ofstream tempFile("temp.txt", std::ios::out);
+    bool found = false;
 
-    while (inputFile >> foodName >> caloriesAmount >> proteinAmount >> carbohydratesAmount >> fatAmount) {
-        if (foodName == nameToRemove) {
-            // Пропускаємо запис, який ми хочемо видалити
+    while (std::getline(file, line)) {
+        std::istringstream ss(line);
+        std::string foodEntity;        
+        std::getline(ss, foodEntity);
+
+        size_t pos = foodEntity.find("|");
+        std::string foodName = foodEntity.substr(0, pos);
+
+        if (foodName != nameToRemove) {
+            tempFile << line << std::endl;
         }
         else {
-            tempFile << foodName << "|" << caloriesAmount << "|" << proteinAmount << "|" << carbohydratesAmount << "|" << fatAmount << std::endl;
+            found = true;
         }
     }
 
-    inputFile.close();
+    file.close();
     tempFile.close();
 
     if (remove("foodDatabase.txt") != 0) {
-        std::cout << "Unable to delete the original file.\n";
-        return;
+        std::cout << "Unable to delete the original file.";
     }
     if (rename("temp.txt", "foodDatabase.txt") != 0) {
-        std::cout << "Unable to rename the temporary file.\n";
+        std::cout << "Unable to rename the temporary file.";
+    }
+    if (found) {
+        std::cout << "Food item removed successfully.\n";
     }
     else {
-        std::cout << "Food item removed successfully.\n";
+        std::cout << "Food item not found in the database.\n";
     }
 }
 
@@ -109,10 +117,18 @@ void FoodLibrary::editFoodItem(const std::string& nameToEdit) {
         return;
     }
 
-    std::string foodName;
-    double calorieAmt, proteinAmt, carbAmt, fatAmt;
+    std::string line;
 
-    while (inputFile >> foodName >> calorieAmt >> proteinAmt >> carbAmt >> fatAmt) {
+    while (std::getline(inputFile, line)) {
+        std::istringstream ss(line);
+        std::string foodName, calorieAmt, proteinAmt, carbAmt, fatAmt;
+
+        std::getline(ss, foodName, '|');
+        std::getline(ss, calorieAmt, '|');
+        std::getline(ss, proteinAmt, '|');
+        std::getline(ss, carbAmt, '|');
+        std::getline(ss, fatAmt, '|');
+
         if (foodName == nameToEdit) {
             FoodItem editedFoodItem;
             double newCalories = 0.0, newProtein = 0.0, newCarb = 0.0, newFat = 0.0;
@@ -191,17 +207,25 @@ void FoodLibrary::viewFoodList() {
 std::vector<FoodItem> FoodLibrary::searchFoodByName(const std::string& nameToSearch) {
     std::vector<FoodItem> searchResults;
     std::ifstream inputFile("foodDatabase.txt");
-    std::string foodName;
-    double calorieAmt, proteinAmt, carbAmt, fatAmt;
+    std::string line;
 
     if (!inputFile.is_open()) {
         std::cout << "Unable to open the file for reading.\n";
         return searchResults;
     }
 
-    while (inputFile >> foodName >> calorieAmt >> proteinAmt >> carbAmt >> fatAmt) {
+    while (std::getline(inputFile, line)) {
+        std::istringstream ss(line);
+        std::string foodName, calorieAmt, proteinAmt, carbAmt, fatAmt;
+
+        std::getline(ss, foodName, '|');
+        std::getline(ss, calorieAmt, '|');
+        std::getline(ss, proteinAmt, '|');
+        std::getline(ss, carbAmt, '|');
+        std::getline(ss, fatAmt, '|');
+
         if (foodName.find(nameToSearch) != std::string::npos) {
-            searchResults.emplace_back(foodName, calorieAmt, proteinAmt, carbAmt, fatAmt);
+            searchResults.emplace_back(foodName, std::stod(calorieAmt), std::stod(proteinAmt), std::stod(carbAmt), std::stod(fatAmt));
         }
     }
 

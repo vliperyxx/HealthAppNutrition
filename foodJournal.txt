@@ -7,3 +7,24 @@ Products:
 - Pineapple(90 calories);
 - Pizza(198 calories);
 ---------------------------
+Date: 21.21.2023
+Total Calories: 0
+Total Protein: 0
+Total Carbohydrates: 0
+Total Fat: 0
+Products:
+---------------------------
+Date: 12.12.2023
+Total Calories: 0
+Total Protein: 0
+Total Carbohydrates: 0
+Total Fat: 0
+Products:
+---------------------------
+Date: 21.21.2023
+Total Calories: 0
+Total Protein: 0
+Total Carbohydrates: 0
+Total Fat: 0
+Products:
+---------------------------

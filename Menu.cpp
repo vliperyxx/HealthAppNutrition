@@ -39,7 +39,7 @@ void Menu::run()
             actions[choice]->execute();
         }
         else {
-            std::cout << "Invalid choice. Please try again." << std::endl;
+            std::cout << "See you soon!" << std::endl;
             exit(0);
         }
     }

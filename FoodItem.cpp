@@ -18,7 +18,7 @@ std::string FoodItem::getNameOfTheProduct() const
 
 void FoodItem::setNameOfTheProduct(const std::string& newName)
 {
-    std::cin >> name;
+    std::getline(std::cin, name);
 }
 
 double FoodItem::getCalories() const

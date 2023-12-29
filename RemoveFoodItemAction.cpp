@@ -6,4 +6,5 @@ void RemoveFoodItemAction::execute() {
     std::cout << "Enter the name of the product you want to remove: ";
     std::cin >> nameToRemove;
     foodLibrary.removeFoodItem(nameToRemove);
+    std::cin >> nameToRemove;
 }

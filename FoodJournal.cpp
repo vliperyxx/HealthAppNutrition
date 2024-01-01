@@ -31,7 +31,8 @@ void FoodJournal::recordDailyIntake() {
     std::string productName;
     while (true) {
         std::cout << "Enter product name (or 'q' to finish adding products for the day): ";
-        std::cin >> productName;
+        std::cin.ignore();
+        std::getline(std::cin, productName);
 
         if (productName == "q") {
             break;

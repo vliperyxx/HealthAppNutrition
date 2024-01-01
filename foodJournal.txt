@@ -27,4 +27,11 @@ Total Protein: 0
 Total Carbohydrates: 0
 Total Fat: 0
 Products:
+---------------------------Date: 01.01.2023
+Total Calories: 24
+Total Protein: 54
+Total Carbohydrates: 3
+Total Fat: 5
+Products:
+- Apple Semerenko(24 calories);
 ---------------------------
